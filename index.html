@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FitTrack | Gym Attendance</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="nav">
+    <a class="brand" href="#home">
+      <b>FT</b> FIT<span>TRACK</span>
+    </a>
+
+    <nav id="navlinks">
+      <a class="active" href="#home">Home</a>
+      <a href="#attendance">Members</a>
+      <a href="#overview">Overview</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <div class="navright">
+      <span class="open"><i></i> GYM OPEN</span>
+      <a class="navbtn" href="#add-member">＋ Add Member</a>
+    </div>
+
+    <button id="menu" class="menu">☰</button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="shade"></div>
+
+      <div class="hero-content">
+        <p class="kicker">— COMMUNITY FITNESS CENTER</p>
+
+        <h1>SHOW UP.<br><span>LEVEL UP.</span></h1>
+
+        <p class="herotext">
+          A smarter way to keep track of who's in the gym.<br>
+          Simple check-ins. Clear attendance. Better flow.
+        </p>
+
+        <div class="heroactions">
+          <a class="btn" href="#attendance">
+            VIEW ATTENDANCE <b>↘</b>
+          </a>
+
+          <a class="outline" href="#add-member">
+            ＋ REGISTER MEMBER
+          </a>
+        </div>
+      </div>
+
+      <div class="stamp">
+        FIT<br>
+        TRACK
+        <small>YOUR DAILY GYM CHECK-IN</small>
+      </div>
+
+      <div class="herofoot">
+        <span>01 / MEMBER ATTENDANCE</span>
+        <span>BUILT FOR THE EVERYDAY GRIND <b>✳</b></span>
+      </div>
+    </section>
+
+    <section class="wrap overview" id="overview">
+      <div class="heading">
+        <div>
+          <p class="kicker">AT A GLANCE</p>
+          <h2>THE FLOOR <span>STATUS</span></h2>
+        </div>
+
+        <p class="sidecopy">
+          Your gym, in real time.<br>
+          <small>Attendance overview</small>
+        </p>
+      </div>
+
+      <div class="stats">
+        <article class="stat featured">
+          <p>◎ &nbsp; CURRENTLY INSIDE</p>
+          <strong id="insideCount">0</strong>
+          <small><i></i> Members checked in right now</small>
+          <b class="index">01</b>
+        </article>
+
+        <article class="stat">
+          <p>♟ &nbsp; TOTAL MEMBERS</p>
+          <strong id="totalMembers">0</strong>
+          <small>Registered in FitTrack</small>
+          <b class="index">02</b>
+        </article>
+
+        <article class="stat">
+          <p>↗ &nbsp; CURRENTLY OUTSIDE</p>
+          <strong id="outsideCount">0</strong>
+          <small>Not currently in the gym</small>
+          <b class="index">03</b>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap workspace">
+      <article class="panel" id="add-member">
+        <div class="panelmeta">
+          <span>NEW REGISTRATION</span>
+          <small>/ 01</small>
+        </div>
+
+        <h2>ADD A <em>MEMBER</em></h2>
+        <p class="intro">Get them on the list and ready to train.</p>
+
+        <form id="memberForm" novalidate>
+          <label for="memberId">MEMBER ID</label>
+          <input
+            id="memberId"
+            placeholder="e.g. M-003"
+            maxlength="20"
+            required
+          >
+
+          <label for="memberName">FULL NAME</label>
+          <input
+            id="memberName"
+            placeholder="Enter member's full name"
+            maxlength="80"
+            required
+          >
+
+          <button class="btn submit" type="submit">
+            ＋ REGISTER MEMBER <b>↗</b>
+          </button>
+
+          <p class="hint">Member IDs must be unique.</p>
+        </form>
+      </article>
+
+      <article class="panel" id="about">
+        <div class="panelmeta">
+          <span>QUICK GUIDE</span>
+          <small>/ 02</small>
+        </div>
+
+        <h2>IN. OUT. <em>ALL CLEAR.</em></h2>
+        <p class="intro">
+          Two quick actions keep the floor status accurate.
+        </p>
+
+        <div class="guide">
+          <b>↘</b>
+
+          <div>
+            <strong>CHECK IN</strong>
+            <p>Mark a member as inside the gym.</p>
+          </div>
+
+          <span>INSIDE</span>
+        </div>
+
+        <div class="guide">
+          <b class="dim">↗</b>
+
+          <div>
+            <strong>CHECK OUT</strong>
+            <p>Mark a member as having left.</p>
+          </div>
+
+          <span class="dimtext">OUTSIDE</span>
+        </div>
+
+        <div class="rule">
+          <b>!</b>
+
+          <p>
+            <strong>HOUSE RULE</strong><br>
+            A member already marked <b>Inside</b> cannot check in again.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="wrap members" id="attendance">
+      <div class="heading">
+        <div>
+          <p class="kicker">LIVE MEMBER LIST</p>
+          <h2>ATTENDANCE <span>BOARD</span></h2>
+        </div>
+
+        <p class="live">
+          <i></i> LOCAL TRACKER ACTIVE
+        </p>
+      </div>
+
+      <div class="tablepanel">
+        <div class="toolbar">
+          <div class="search">
+            ⌕
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Search member ID or name..."
+            >
+          </div>
+
+          <select id="statusFilter">
+            <option value="All">ALL STATUSES</option>
+            <option>Inside</option>
+            <option>Outside</option>
+          </select>
+        </div>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>MEMBER</th>
+                <th>MEMBER ID</th>
+                <th>STATUS</th>
+                <th>LAST ACTION</th>
+                <th>ACTIONS</th>
+              </tr>
+            </thead>
+
+            <tbody id="memberTableBody"></tbody>
+          </table>
+
+          <div id="emptyState" class="empty" hidden>
+            <b>◎</b>
+            <strong>NO MEMBERS FOUND</strong>
+            <p>Add a member or change your search.</p>
+          </div>
+        </div>
+
+        <div class="tablefoot">
+          <span id="resultsLabel">Showing 0 members</span>
+          <button id="resetDemo">↻ RESET SAMPLE DATA</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#home">
+      <b>FT</b> FIT<span>TRACK</span>
+    </a>
+
+    <p>
+      GYM ATTENDANCE MANAGER
+      <i>•</i>
+      BROWSER-BASED PROTOTYPE
+    </p>
+
+    <a href="#home">BACK TO TOP ↑</a>
+  </footer>
+
+  <div id="toast" role="status" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
